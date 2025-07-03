@@ -1,0 +1,8 @@
+@import "../../assets/styles/vars.scss";
+
+.page-section-title {
+  font-weight: 500;
+  font-size: var(--font-size-l);
+  line-height: rem(20);
+  color: var(--color-content-high);
+}

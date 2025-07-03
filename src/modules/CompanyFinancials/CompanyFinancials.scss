@@ -1,0 +1,37 @@
+@import "../../assets/styles/functions.scss";
+
+.company-financials__score {
+  font-size: var(--font-size-xxl);
+  font-weight: 400;
+  line-height: rem(56);
+  color: var(--color-success-veryhigh);
+}
+.company-financials__label {
+  font-size: rem(11);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--color-content-low);
+  margin: 0 0;
+}
+.company-financials__data-items {
+  display: flex;
+  flex-wrap: wrap;
+  margin: rem(8) rem(-16) 0;
+}
+.company-financials__data-item {
+  width: 50%;
+  padding: rem(8) rem(16);
+}
+.company-financials__data-value {
+  font-weight: 500;
+  font-size: rem(22);
+  line-height: rem(26);
+  color: var(--Palette-Content-High);
+}
+.company-financials__data-key {
+  margin: 0 0;
+  font-weight: 400;
+  font-size: rem(11);
+  line-height: rem(15);
+  color: var(--color-content-low);
+}
