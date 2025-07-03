@@ -1,0 +1,17 @@
+@import "./assets/styles/vars.scss";
+@import "./assets/styles/functions.scss";
+
+.icon {
+  color: inherit;
+}
+.container {
+  max-width: rem(1280);
+  padding: 0 rem(24);
+  margin: 0 auto;
+}
+.row {
+  margin: 0 rem(-12);
+}
+.col {
+  padding: 0 rem(12);
+}

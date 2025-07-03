@@ -1,0 +1,91 @@
+@import "../../assets/styles/functions.scss";
+
+.company-info {
+}
+
+.company-info__title {
+  color: var(--color-content-high);
+  font-weight: 500;
+  font-size: var(--font-size-xl);
+  margin: rem(32) 0 rem(16);
+}
+.company-info__description {
+  color: var(--color-content-mid);
+  font-size: var(--font-size-m);
+  font-weight: 400;
+  line-height: rem(18);
+  margin: rem(16) 0;
+}
+.company-info__classification {
+  display: flex;
+  flex-wrap: wrap;
+}
+.company-info__classification-item {
+  &:not(:last-child) {
+    position: relative;
+    padding-right: rem(12);
+    margin: 0 0.75rem 1rem 0;
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: rem(1);
+      height: rem(24);
+      background-color: var(--color-background-low);
+    }
+  }
+  .icon {
+    font-size: rem(14);
+  }
+}
+.company-info__classification-badges {
+  display: flex;
+  gap: rem(4);
+  .icon {
+    color: var(--color-content-high);
+  }
+}
+.company-info__classification-badge {
+  border-radius: 100%;
+  width: rem(24);
+  height: rem(24);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-background-low);
+}
+.company-info__classification-item-label {
+  color: var(--color-content-low);
+  font-size: var(--font-size-s);
+  font-weight: 400;
+  line-height: rem(16);
+  margin: 0 0 rem(2);
+}
+.company-info__badge {
+  background-color: var(--color-success-verylow);
+  color: var(--color-success-veryhigh);
+  border-radius: rem(4);
+  padding: rem(4) rem(6) rem(4) rem(4);
+  font-weight: 500;
+  line-height: rem(18);
+  font-size: var(--font-size-m);
+  gap: rem(2);
+  display: flex;
+  align-items: center;
+  width: fit-content;
+}
+
+.company-info__details-item {
+  margin: 0 0 rem(14);
+  display: flex;
+  align-items: center;
+  gap: rem(8);
+  color: var(--color-content-mid);
+  font-size: var(--font-size-m);
+  font-weight: 400;
+  line-height: rem(18);
+  .icon {
+    font-size: rem(14);
+  }
+}

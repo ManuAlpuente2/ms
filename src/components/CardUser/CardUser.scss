@@ -1,0 +1,53 @@
+@import "../../assets/styles/functions.scss";
+
+.avatar {
+  width: rem(32);
+  height: rem(32);
+  background-color: var(--color-onbrandcolor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: rem(14);
+  line-height: rem(18);
+  color: var(--color-background-base);
+  border-radius: rem(4);
+}
+
+.card-user {
+  display: flex;
+  align-items: center;
+  gap: rem(4);
+  .icon {
+    display: flex;
+    align-items: center;
+    &:before {
+      font-size: rem(10);
+      color: var(--color-content-low);
+    }
+  }
+}
+
+.card-user_name {
+  font-size: var(--font-size-m);
+  font-weight: 500;
+  line-height: rem(20);
+  color: var(--color-content-high);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.card-user_email {
+  font-size: rem(11);
+  line-height: rem(15);
+  color: var(--color-content-low);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.card-user_info {
+  max-width: rem(118);
+  overflow: hidden;
+}
