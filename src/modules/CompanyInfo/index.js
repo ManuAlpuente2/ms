@@ -42,7 +42,9 @@ const CompanyInfo = ({ data }) => {
         </p>
         <p className="company-info__details-item">
           <i className="icon icon-link" />
-          {data.website}
+          <a href={data.website} target="_blank" rel="noopener noreferrer">
+            {data.website}
+          </a>
         </p>
       </div>
     </section>

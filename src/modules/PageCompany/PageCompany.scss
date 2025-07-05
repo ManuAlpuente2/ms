@@ -5,4 +5,61 @@
   font-size: var(--font-size-l);
   line-height: rem(20);
   color: var(--color-content-high);
+  margin: 1rem 0 1rem 0;
+}
+
+.company-fist-group_row {
+  margin: 0 -1.5rem;
+  .col {
+    padding: 0 1.5rem;
+    border-bottom: 1px solid var(--color-background-low);
+    padding-bottom: rem(8);
+  }
+}
+
+@media (min-width: 640px) {
+  .company-fist-group_row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .col_company-info {
+    border-bottom: 1px solid var(--color-background-low);
+  }
+  .col_company-financials {
+    border-right: 1px solid var(--color-background-low);
+  }
+  .col_company-financials,
+  .col_company-score {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .company-fist-group {
+    border-bottom: 1px solid var(--color-background-low);
+  }
+  .company-fist-group_row {
+    margin: 0 -0.75rem;
+    .col {
+      border-bottom: none;
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
+  }
+  .page-section-title {
+    margin: rem(38) 0 1rem 0;
+  }
+  .col_company-info {
+    width: 50%;
+    padding-bottom: rem(24);
+  }
+  .col_company-financials,
+  .col_company-info {
+    border-right: 1px solid var(--color-background-low);
+  }
+  .col_company-financials,
+  .col_company-score {
+    width: 25%;
+    padding-bottom: rem(24);
+  }
 }
