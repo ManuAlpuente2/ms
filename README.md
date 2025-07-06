@@ -1,70 +1,247 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Prueba técnica MS
 
-## Available Scripts
+  
 
-In the project directory, you can run:
+## 📋 Descripción
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Es una aplicación web para el análisis y evaluación de empresas, desarrollada con React. La plataforma permite visualizar información financiera detallada, clasificar empresas y navegar entre diferentes compañías de forma intuitiva.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  
 
-### `npm test`
+## ✨ Características Principales
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  
 
-### `npm run build`
+### 🎯 Página "Lists" - Lista Ordenable
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-  **Lista principal de empresas** con funcionalidad de ordenamiento completo
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-  **Ordenamiento por columnas**: Nombre, Ubicación, Score, Facturación y EBITDA
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-  **Navegación directa** al detalle de cada empresa al hacer clic en cualquier fila
 
-### `npm run eject`
+-  **Visualización de datos históricos** integrada en la tabla
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+-  **Indicadores visuales** de score con códigos de color (A, B, C)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 💾 Persistencia de Datos
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+-  **Assessment de clasificación** guardado automáticamente en localStorage
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 🧭 Navegación Avanzada
 
-### Code Splitting
+-  **Navegación Anterior/Siguiente** en la página de detalle de empresa
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+-  **Rutas dinámicas** con React Router
 
-### Analyzing the Bundle Size
+  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 📱 Diseño Responsive y Accesible
 
-### Making a Progressive Web App
+-  **Mobile-first** con breakpoints optimizados
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+-  **Navegación por teclado** completa
 
-### Advanced Configuration
+-  **Contraste WCAG** cumplido
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+-  **ARIA labels** y roles semánticos
 
-### Deployment
+-  **Iconografía accesible** con descripciones
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+  
 
-### `npm run build` fails to minify
+## 🛠 Tecnologías Utilizadas
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  
+
+### Frontend
+
+-  **React 19.1.0** - Biblioteca principal de UI
+
+-  **React Router DOM 7.6.1** - Enrutamiento de la aplicación
+
+-  **SASS 1.89.2** - Preprocesador CSS con variables CSS
+
+-  **Recharts 3.0.2** - Gráficos y visualizaciones de datos
+
+-  **@number-flow/react 0.5.10** - Animaciones numéricas
+
+ 
+
+  
+
+## 📁 Estructura del Proyecto
+
+  
+
+```
+
+src/
+
+├── assets/
+
+│ ├── icons/ # Iconografía personalizada (icomoon)
+
+│ ├── img/ # Imágenes y logos
+
+│ └── styles/
+
+│ ├── vars.scss # Variables CSS globales
+
+│ └── functions.scss
+
+├── components/ # Componentes reutilizables
+
+│ ├── Accordion/
+
+│ ├── Button/ 
+
+│ ├── CardUser/ 
+
+│ ├── Navigation/ 
+
+│ └── Search/ 
+
+├── modules/ # Módulos principales
+
+│ ├── CompanyFinancials/ # Datos financieros
+
+│ ├── CompanyHistoricalFinancials/ # Histórico
+
+│ ├── CompanyInfo/ # Información de empresa
+
+│ ├── CompanyScore/ # Indicadores de score
+
+│ ├── PageCompany/ # Página de detalle
+
+│ ├── PageLists/ # Página de lista
+
+│ └── Header/ # Cabecera
+
+├── mocks/ # Datos de prueba
+
+└── utils/ # Utilidades y helpers
+
+```
+
+  
+
+## 🎨 Arquitectura de Estilos
+
+  
+
+### Sistema de Diseño
+
+-  **Variables CSS** centralizadas en `vars.scss`
+
+-  **Nomenclatura BEM** para clases CSS
+
+-  **Utility-first** con SASS
+ 
+
+  
+
+## 🚀 Instalación y Uso
+
+  
+
+### Prerrequisitos
+
+- Node.js 16+
+
+- npm o yarn
+
+  
+
+### Instalación
+
+```bash
+# Instalar dependencias
+
+npm  install
+
+# Iniciar servidor de desarrollo
+
+npm  start
+
+```
+
+  
+
+### Scripts Disponibles
+
+```bash
+
+npm  start  # Servidor de desarrollo (puerto 3000)
+
+npm  build  # Build de producción
+
+```
+
+  
+
+## 📊 Funcionalidades Técnicas
+
+
+
+### Enrutamiento
+
+-  **HashRouter** para compatibilidad con hosting estático
+
+ 
+### Persistencia de Datos
+
+-  **localStorage** para assessments de clasificación
+
+  
+
+## 🎯 Características de UX/UI
+
+  
+
+### Interactividad
+
+-  **Tablas ordenables** con indicadores visuales
+
+-  **Acordeones expandibles** para organizar contenido
+
+-  **Botones de evaluación** con feedback visual
+
+-  **Navegación fluida** entre empresas
+
+  
+
+### Accesibilidad
+
+-  **Navegación por teclado** completa
+
+-  **Roles ARIA** apropiados
+
+-  **Textos alternativos** para iconos
+
+  
+
+## 🔧 Configuración y Personalización
+
+### Datos de Prueba
+
+Los datos de empresas se encuentran en `src/mocks/dataCompany.js` y pueden ser modificados para pruebas.
+
+  
+
+## 📝 Notas de Desarrollo
+
+  
+
+-  **Código funcional** sin clases, siguiendo principios de programación funcional
+
+-  **Componentes modulares** con responsabilidades bien definidas
+
+-  **Estilos encapsulados** por componente
