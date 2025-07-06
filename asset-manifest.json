@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.b6d2ab7a.css",
-    "main.js": "/static/js/main.95151849.js",
-    "static/js/453.0b11331a.chunk.js": "/static/js/453.0b11331a.chunk.js",
-    "static/media/icomoon.svg?e83can": "/static/media/icomoon.636af6390be30ba7265a.svg",
-    "static/media/logo-manu.svg": "/static/media/logo-manu.dd05369802ad1c2c6f9cab6a80de6f9a.svg",
-    "static/media/icomoon.woff?e83can": "/static/media/icomoon.f62d73763316fc3496e7.woff",
-    "static/media/logo-manu--mobile.svg": "/static/media/logo-manu--mobile.1efc46620fbf69495639aa0e3f0cc369.svg",
-    "static/media/icomoon.ttf?e83can": "/static/media/icomoon.2df69f95fd3d8bdaa5e6.ttf",
-    "index.html": "/index.html",
-    "main.b6d2ab7a.css.map": "/static/css/main.b6d2ab7a.css.map",
-    "main.95151849.js.map": "/static/js/main.95151849.js.map",
-    "453.0b11331a.chunk.js.map": "/static/js/453.0b11331a.chunk.js.map"
+    "main.css": "/build/static/css/main.e8e196a3.css",
+    "main.js": "/build/static/js/main.e8be082c.js",
+    "static/js/453.0b11331a.chunk.js": "/build/static/js/453.0b11331a.chunk.js",
+    "static/media/icomoon.svg?e83can": "/build/static/media/icomoon.636af6390be30ba7265a.svg",
+    "static/media/logo-manu.svg": "/build/static/media/logo-manu.dd05369802ad1c2c6f9cab6a80de6f9a.svg",
+    "static/media/icomoon.woff?e83can": "/build/static/media/icomoon.f62d73763316fc3496e7.woff",
+    "static/media/logo-manu--mobile.svg": "/build/static/media/logo-manu--mobile.1efc46620fbf69495639aa0e3f0cc369.svg",
+    "static/media/icomoon.ttf?e83can": "/build/static/media/icomoon.2df69f95fd3d8bdaa5e6.ttf",
+    "index.html": "/build/index.html",
+    "main.e8e196a3.css.map": "/build/static/css/main.e8e196a3.css.map",
+    "main.e8be082c.js.map": "/build/static/js/main.e8be082c.js.map",
+    "453.0b11331a.chunk.js.map": "/build/static/js/453.0b11331a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b6d2ab7a.css",
-    "static/js/main.95151849.js"
+    "static/css/main.e8e196a3.css",
+    "static/js/main.e8be082c.js"
   ]
 }
