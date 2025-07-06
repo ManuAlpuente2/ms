@@ -16,7 +16,7 @@ const Navigation = () => {
             location.pathname === "/" ? "navigation_item__current" : ""
           }`}
         >
-          <Link to="/" className="navigation_link">
+          <Link to="/lists" className="navigation_link">
             Dashboard
           </Link>
         </li>
@@ -25,7 +25,7 @@ const Navigation = () => {
             location.pathname === "/explorer" ? "navigation_item__current" : ""
           }`}
         >
-          <Link to="/explorer" className="navigation_link">
+          <Link to="/lists" className="navigation_link">
             Explorer
           </Link>
         </li>
@@ -47,7 +47,7 @@ const Navigation = () => {
               : ""
           }`}
         >
-          <Link to="/microsectors" className="navigation_link">
+          <Link to="/lists" className="navigation_link">
             Microsectors
           </Link>
         </li>
@@ -65,7 +65,7 @@ const Navigation = () => {
             location.pathname === "/analysis" ? "navigation_item__current" : ""
           }`}
         >
-          <Link to="/analysis" className="navigation_link">
+          <Link to="/lists" className="navigation_link">
             Analysis
             <span className="navigation_link_badge">Beta</span>
           </Link>

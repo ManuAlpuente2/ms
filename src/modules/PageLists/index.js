@@ -1,10 +1,78 @@
 import "./PageLists.scss";
 import CompanyHistoricalFinancials from "../CompanyHistoricalFinancials";
 import { useNavigate } from "react-router-dom";
+import { useState, useMemo } from "react";
 import { getScoreClass } from "../../utils";
 
 const PageLists = ({ data }) => {
   const navigate = useNavigate();
+  const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
+
+  const sortedData = useMemo(() => {
+    if (!sortConfig.key) return data;
+
+    return [...data].sort((a, b) => {
+      let aValue, bValue;
+
+      switch (sortConfig.key) {
+        case "name":
+          aValue = a.company.name.toLowerCase();
+          bValue = b.company.name.toLowerCase();
+          break;
+        case "location":
+          aValue = a.company.location.toLowerCase();
+          bValue = b.company.location.toLowerCase();
+          break;
+        case "score":
+          aValue = a.financials.score;
+          bValue = b.financials.score;
+          break;
+        case "turnover":
+          aValue = b.financials.turnover;
+          bValue = a.financials.turnover;
+          break;
+        case "ebitda":
+          aValue = b.financials.ebitda;
+          bValue = a.financials.ebitda;
+          break;
+        default:
+          return 0;
+      }
+
+      if (aValue < bValue) {
+        return sortConfig.direction === "asc" ? -1 : 1;
+      }
+      if (aValue > bValue) {
+        return sortConfig.direction === "asc" ? 1 : -1;
+      }
+      return 0;
+    });
+  }, [data, sortConfig]);
+
+  const handleSort = (key) => {
+    setSortConfig((c) => {
+      if (c.key === key) {
+        return {
+          key,
+          direction: c.direction === "asc" ? "desc" : "asc",
+        };
+      }
+      return { key, direction: "asc" };
+    });
+  };
+
+  const getSortIcon = (key, invert = false) => {
+    if (sortConfig.key !== key) {
+      return <i className="icon icon-chevron-selector"></i>;
+    }
+    const dir = invert ? "desc" : "asc";
+    return sortConfig.direction === dir ? (
+      <i className="icon icon-chevron-up"></i>
+    ) : (
+      <i className="icon icon-chevron-down"></i>
+    );
+  };
+
   return (
     <div className="lists">
       <div className="container">
@@ -14,39 +82,89 @@ const PageLists = ({ data }) => {
         <table className="table list_table">
           <thead>
             <tr>
-              <th></th>
-              <th className="list_item_location">Location</th>
-              <th className="list_item_score">Score</th>
-              <th className="list_item_turnover">Turnover</th>
-              <th className="list_item_ebitda">EBITDA</th>
+              <th
+                className={`list_item_name sortable ${
+                  sortConfig.key === "name" ? "active" : ""
+                }`}
+                onClick={() => handleSort("name")}
+              >
+                <span className="sort-header">
+                  Name
+                  {getSortIcon("name")}
+                </span>
+              </th>
+              <th
+                className={`list_item_location sortable ${
+                  sortConfig.key === "location" ? "active" : ""
+                }`}
+                onClick={() => handleSort("location")}
+              >
+                <span className="sort-header">
+                  Location
+                  {getSortIcon("location")}
+                </span>
+              </th>
+              <th
+                className={`list_item_score sortable ${
+                  sortConfig.key === "score" ? "active" : ""
+                }`}
+                onClick={() => handleSort("score")}
+              >
+                <span className="sort-header">
+                  Score
+                  {getSortIcon("score", true)}
+                </span>
+              </th>
+              <th
+                className={`list_item_turnover sortable ${
+                  sortConfig.key === "turnover" ? "active" : ""
+                }`}
+                onClick={() => handleSort("turnover")}
+              >
+                <span className="sort-header">
+                  Turnover
+                  {getSortIcon("turnover", true)}
+                </span>
+              </th>
+              <th
+                className={`list_item_ebitda sortable ${
+                  sortConfig.key === "ebitda" ? "active" : ""
+                }`}
+                onClick={() => handleSort("ebitda")}
+              >
+                <span className="sort-header">
+                  EBITDA
+                  {getSortIcon("ebitda", true)}
+                </span>
+              </th>
               <th className="list_item_historical-financials">
                 Historical Financials
               </th>
             </tr>
           </thead>
           <tbody>
-            {data.map((item, index) => (
-              <tr onClick={() => navigate(`/companies/${index}`)}>
+            {sortedData.map((item, index) => (
+              <tr key={index} onClick={() => navigate(`/companies/${index}`)}>
                 <td className="list_item_name">
                   {item.company.name}{" "}
                   <span
-                    class={`company-info__badge ${getScoreClass(
+                    className={`company-info__badge ${getScoreClass(
                       item.financials.score
                     )} ${getScoreClass(item.financials.score)}`}
                   >
-                    <i class="icon icon-arrow-up"></i>
+                    <i className="icon icon-arrow-up"></i>
                     {item.company.microsector}
                   </span>
                 </td>
                 <td className="list_item_country">
-                  <span class="company-info__details-item">
-                    <i class="icon icon-marker"></i>
+                  <span className="company-info__details-item">
+                    <i className="icon icon-marker"></i>
                     {item.company.location}
                   </span>
                 </td>
                 <td className="list_item_score">
                   <span
-                    class={`company-financials__score ${getScoreClass(
+                    className={`company-financials__score ${getScoreClass(
                       item.financials.score
                     )}`}
                   >
@@ -54,9 +172,9 @@ const PageLists = ({ data }) => {
                   </span>
                 </td>
                 <td className="list_item_turnover">
-                  <span>{item.financials.turnover}</span>
+                  <span>€{item.financials.turnover}M</span>
                 </td>
-                <td className="list_item_ebitda">{item.financials.ebitda}</td>
+                <td className="list_item_ebitda">€{item.financials.ebitda}M</td>
                 <td className="list_item_progress">
                   <CompanyHistoricalFinancials
                     data={item.historical_financials}

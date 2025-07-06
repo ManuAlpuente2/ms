@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/img/logo-manu.svg";
 import { ReactComponent as LogoMobile } from "../../assets/img/logo-manu--mobile.svg";
 import "./Header.scss";
@@ -20,11 +21,13 @@ const Header = () => {
           </div>
         </div>
         <div className="header_center">
-          <LogoMobile
-            className="logo header__logo"
-            alt="Manu Alpuente"
-            title="Manu Alpuente"
-          />
+          <Link to="/lists">
+            <LogoMobile
+              className="logo header__logo"
+              alt="Manu Alpuente"
+              title="Manu Alpuente"
+            />
+          </Link>
         </div>
         <div className="header_right">
           <Button
@@ -57,11 +60,13 @@ const Header = () => {
       <div className="header header--desktop">
         <div className="container header_container">
           <div className="header_start">
-            <Logo
-              className="logo header__logo"
-              alt="Manu Alpuente"
-              title="Manu Alpuente"
-            />
+            <Link to="/lists">
+              <Logo
+                className="logo header__logo"
+                alt="Manu Alpuente"
+                title="Manu Alpuente"
+              />
+            </Link>
             <Navigation />
           </div>
           <div className="header_end">
