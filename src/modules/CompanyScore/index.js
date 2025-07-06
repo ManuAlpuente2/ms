@@ -9,15 +9,16 @@ import {
   Tooltip,
 } from "recharts";
 import "./CompanyScore.scss";
+import { getScoreColor } from "../../utils";
 
-const COLORS = {
-  company: "#209464",
-  microsector: "var(--color-charting-15)",
-  sme: "var(--color-charting-14)",
-};
-
-const CompanyScore = ({ data }) => {
+const CompanyScore = ({ data, score }) => {
   if (!data) return null;
+
+  const COLORS = {
+    company: getScoreColor(score),
+    microsector: "var(--color-charting-15)",
+    sme: "var(--color-charting-14)",
+  };
 
   const chartData = data.categories.map((cat, i) => ({
     category: cat,

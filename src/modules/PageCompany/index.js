@@ -38,7 +38,10 @@ const PageCompany = ({ data }) => {
               <CompanyFinancials data={data[id].financials} />
             </div>
             <div className="col col_company-score">
-              <CompanyScore data={data[id].score_indicators} />
+              <CompanyScore
+                data={data[id].score_indicators}
+                score={data[id].financials.score}
+              />
             </div>
           </div>
         </div>
