@@ -1,0 +1,73 @@
+.company-income-table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.company-income-table__actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.5rem;
+}
+
+.company-income-table__table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+  font-size: var(--font-size-s);
+  background: #fff;
+  font-weight: 400;
+}
+
+.company-income-table__th,
+.company-income-table__td {
+  padding: 0.75rem 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-background-low);
+  text-align: right;
+}
+
+.company-income-table__th {
+  color: var(--color-content-mid);
+  font-size: 1rem;
+  font-weight: 400;
+  font-size: var(--font-size-s);
+  border-top: 1px solid var(--color-background-low);
+  text-wrap: nowrap;
+  &:first-child {
+    text-align: left;
+  }
+}
+
+.company-income-table__td--label {
+  color: var(--color-content-high);
+  text-align: left;
+  text-wrap: nowrap;
+}
+
+.company-income-table__row:last-child .company-income-table__td {
+  border-bottom: none;
+}
+
+.company-income-table__row:not(.company-income-table__row--bold) {
+  .company-income-table__td:first-child {
+    padding-left: 1rem;
+  }
+}
+
+.company-income-table__row--bold {
+  .company-income-table__td--label {
+    font-weight: 700;
+  }
+}
+
+.company-income-table__row--separator {
+  .company-income-table__td {
+    border-color: var(--color-background-mid);
+  }
+}
+
+@media (max-width: 600px) {
+  .company-income-table__table {
+    min-width: 500px;
+  }
+}

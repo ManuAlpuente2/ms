@@ -41,7 +41,7 @@ const CompanyNfdCapex = ({ data }) => {
             tick={{ fill: "var(--color-content-low)", fontSize: 12 }}
             tickLine={false}
             axisLine={false}
-            padding={{ left: 8, right: 8 }}
+            padding={{ left: 16, right: 16 }}
             interval={0}
           />
           <YAxis

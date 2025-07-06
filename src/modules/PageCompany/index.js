@@ -3,6 +3,7 @@ import CompanyInfo from "../CompanyInfo";
 import CompanyScore from "../CompanyScore";
 import CompanyHistoricalFinancials from "../CompanyHistoricalFinancials";
 import CompanyNfdCapex from "../CompanyNfdCapex";
+import CompanyIncomeTable from "../CompanyIncomeTable";
 import "./PageCompany.scss";
 
 const PageCompany = ({ data }) => {
@@ -35,6 +36,9 @@ const PageCompany = ({ data }) => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="container">
+        <CompanyIncomeTable data={data.income_statement} />
       </div>
     </>
   );

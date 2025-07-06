@@ -1,0 +1,18 @@
+.button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--color-content-high);
+  background: var(--color-background-base);
+  color: var(--color-content-high);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-m);
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  &:hover {
+    background: var(--color-background-low);
+  }
+}
