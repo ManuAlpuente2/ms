@@ -29,6 +29,9 @@
       }
     }
   }
+  .company-info__details-item {
+    display: inline-flex;
+  }
   .company-info__details-item,
   .company-info__badge {
     margin: 0;
@@ -39,7 +42,7 @@
     font-weight: 600;
   }
   .company-financials__score {
-    font-size: var(--font-size-xl);
+    font-size: 1.375rem;
   }
 
   .company-historical-financials {
@@ -60,12 +63,33 @@
 }
 .list_item_turnover,
 .list_item_ebitda {
-  font-size: 1.375rem;
+  font-size: 1rem;
   font-weight: 500;
 }
 .list_item_name {
-  font-size: var(--font-size-l);
+  font-size: var(--font-size-m);
   font-weight: 500;
   align-items: baseline;
   padding-left: 0;
+}
+.list_item_location,
+.list_item_country,
+.list_item_historical-financials,
+.list_item_progress {
+  display: none;
+}
+@media (min-width: rem(720)) {
+  .list_item_name {
+    font-size: var(--font-size-l);
+  }
+  .list_item_turnover,
+  .list_item_ebitda {
+    font-size: 1.375rem;
+  }
+  .list_item_location,
+  .list_item_country,
+  .list_item_historical-financials,
+  .list_item_progress {
+    display: table-cell;
+  }
 }

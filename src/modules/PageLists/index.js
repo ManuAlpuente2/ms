@@ -15,11 +15,13 @@ const PageLists = ({ data }) => {
           <thead>
             <tr>
               <th></th>
-              <th>Location</th>
-              <th>Score</th>
-              <th>Turnover</th>
-              <th>EBITDA</th>
-              <th>Historical Financials</th>
+              <th className="list_item_location">Location</th>
+              <th className="list_item_score">Score</th>
+              <th className="list_item_turnover">Turnover</th>
+              <th className="list_item_ebitda">EBITDA</th>
+              <th className="list_item_historical-financials">
+                Historical Financials
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -30,7 +32,7 @@ const PageLists = ({ data }) => {
                   <span
                     class={`company-info__badge ${getScoreClass(
                       item.financials.score
-                    )}  `}
+                    )} ${getScoreClass(item.financials.score)}`}
                   >
                     <i class="icon icon-arrow-up"></i>
                     {item.company.microsector}

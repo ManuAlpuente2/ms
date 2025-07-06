@@ -4,7 +4,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 const Navigation = () => {
   let location = useLocation();
 
-  console.log(location.pathname);
   return (
     <nav
       className="navigation"
@@ -37,7 +36,7 @@ const Navigation = () => {
               : ""
           }`}
         >
-          <Link to="/companies/1" className="navigation_link">
+          <Link to="/companies/0" className="navigation_link">
             Companies
           </Link>
         </li>

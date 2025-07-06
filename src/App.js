@@ -14,7 +14,7 @@ function App() {
       <div className="App">
         <Header />
         <Routes>
-          <Route path="/" element={<Navigate to="/lists" />} />
+          <Route path="/" element={<Navigate to="/companies/0" />} />
           <Route path="/companies/:id" element={<PageCompany data={data} />} />
           <Route path="/lists" element={<PageLists data={data} />} />
         </Routes>

@@ -23,6 +23,34 @@
   margin-bottom: 1rem;
 }
 
+.paginator-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: rem(32);
+}
+
+.paginator-link {
+  display: flex;
+  align-items: center;
+  display: inline-flex;
+  border-radius: 100%;
+  font-size: var(--font-size-m);
+  cursor: pointer;
+  font-weight: 500;
+  .icon {
+    font-size: rem(24);
+    color: var(--color-content-mid);
+  }
+  &:hover {
+    text-decoration: none;
+  }
+}
+.paginator-link--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 @media (max-width: rem(640)) {
   .col.col_company-score {
     padding-bottom: 1rem;
@@ -83,5 +111,29 @@
   .col_company-score {
     width: 25%;
     padding-bottom: rem(24);
+  }
+}
+
+@media (min-width: rem(1380)) {
+  .paginator-links {
+    justify-content: flex-end;
+    gap: rem(16);
+  }
+  .paginator-link__text {
+    display: none;
+  }
+  .paginator-link {
+    position: fixed;
+    top: 50%;
+    margin-top: -24px;
+    .icon {
+      font-size: rem(48);
+    }
+  }
+  .paginator-link--prev {
+    left: 0;
+  }
+  .paginator-link--next {
+    right: 0;
   }
 }

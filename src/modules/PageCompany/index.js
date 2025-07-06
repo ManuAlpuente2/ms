@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import CompanyFinancials from "../CompanyFinancials";
 import CompanyInfo from "../CompanyInfo";
 import CompanyScore from "../CompanyScore";
@@ -20,6 +20,9 @@ const PageCompany = ({ data }) => {
       setActiveAccordion(index);
     }
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
   return (
     <>
       <div className="company-fist-group">
@@ -88,6 +91,26 @@ const PageCompany = ({ data }) => {
           </div>
         </AccordionItem>
       </Accordion>
+      <div className="paginator-links container">
+        <Link
+          to={`/companies/${Number(id) - 1}`}
+          className={`paginator-link paginator-link--prev ${
+            Number(id) === 0 ? "paginator-link--disabled" : ""
+          }`}
+        >
+          <i className="icon icon-chevron-prev" />
+          <span className="paginator-link__text">Previous company</span>
+        </Link>
+        <Link
+          to={`/companies/${Number(id) + 1}`}
+          className={`paginator-link paginator-link--next ${
+            Number(id) === data.length - 1 ? "paginator-link--disabled" : ""
+          }`}
+        >
+          <span className="paginator-link__text">Next company</span>
+          <i className="icon icon-chevron-next" />
+        </Link>
+      </div>
     </>
   );
 };
