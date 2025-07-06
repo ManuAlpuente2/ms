@@ -83,6 +83,16 @@
   }
   .company-financials__score {
     font-size: 1.375rem;
+    position: relative;
+  }
+  .company-info__classification-badge {
+    position: absolute;
+    right: rem(-17);
+    top: rem(-11);
+    font-size: var(--font-size-s);
+    color: var(--color-content-mid);
+    width: 1.25rem;
+    height: 1.25rem;
   }
 
   .company-historical-financials {

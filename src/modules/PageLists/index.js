@@ -172,6 +172,18 @@ const PageLists = ({ data }) => {
                     )}`}
                   >
                     {item.financials.score}
+                    {localStorage.getItem(`assessment_${item.company?.id}`) ===
+                    "true" ? (
+                      <span className={`company-info__classification-badge`}>
+                        <i className="icon icon-like" />
+                      </span>
+                    ) : localStorage.getItem(
+                        `assessment_${item.company?.id}`
+                      ) === "false" ? (
+                      <span className={`company-info__classification-badge`}>
+                        <i className="icon icon-dislike" />
+                      </span>
+                    ) : null}
                   </span>
                 </td>
                 <td className="list_item_turnover">

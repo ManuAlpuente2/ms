@@ -1,6 +1,9 @@
 @import "../../assets/styles/functions.scss";
 
 .company-info {
+  .company-info__classification-badge {
+    cursor: pointer;
+  }
 }
 .company-info__description {
   color: var(--color-content-mid);

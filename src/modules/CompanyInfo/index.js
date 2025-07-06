@@ -15,13 +15,15 @@ const CompanyInfo = ({ data, score }) => {
   }, [data?.id]);
 
   useEffect(() => {
-    if (assessment !== null) {
-      localStorage.setItem(`assessment_${data.id}`, JSON.stringify(assessment));
-    }
+    localStorage.setItem(`assessment_${data.id}`, JSON.stringify(assessment));
   }, [assessment, data?.id]);
 
   const handleAssessmentChange = (value) => {
-    setAssessment(value);
+    if (value === assessment) {
+      setAssessment(null);
+    } else {
+      setAssessment(value);
+    }
   };
 
   return (
