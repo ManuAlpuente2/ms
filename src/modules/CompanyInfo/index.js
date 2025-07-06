@@ -6,19 +6,19 @@ const CompanyInfo = ({ data, score }) => {
   const [assessment, setAssessment] = useState(null);
 
   useEffect(() => {
-    const localAssessment = localStorage.getItem(`assessment_${data.id}`);
+    const localAssessment = localStorage.getItem(`assessment_${data?.id}`);
     if (localAssessment !== null) {
       setAssessment(JSON.parse(localAssessment));
     } else {
       setAssessment(null);
     }
-  }, [data.id]);
+  }, [data?.id]);
 
   useEffect(() => {
     if (assessment !== null) {
       localStorage.setItem(`assessment_${data.id}`, JSON.stringify(assessment));
     }
-  }, [assessment, data.id]);
+  }, [assessment, data?.id]);
 
   const handleAssessmentChange = (value) => {
     setAssessment(value);
@@ -26,14 +26,14 @@ const CompanyInfo = ({ data, score }) => {
 
   return (
     <section className="company-info">
-      <h1 className="page-title">{data.name}</h1>
-      <p className="company-info__description">{data.description}</p>
+      <h1 className="page-title">{data?.name}</h1>
+      <p className="company-info__description">{data?.description}</p>
       <div className="company-info__classification">
         <div className="company-info__classification-item">
           <p className="company-info__classification-item-label">Microsector</p>
           <span className={`company-info__badge ${getScoreClass(score)}`}>
             <i className="icon icon-arrow-up" />
-            {data.microsector}
+            {data?.microsector}
           </span>
         </div>
         <div className="company-info__classification-item">
@@ -63,20 +63,20 @@ const CompanyInfo = ({ data, score }) => {
       <div className="company-info__details">
         <p className="company-info__details-item">
           <i className="icon icon-asterisk" />
-          {data.id}
+          {data?.id}
         </p>
         <p className="company-info__details-item">
           <i className="icon icon-marker" />
-          {data.location}
+          {data?.location}
         </p>
         <p className="company-info__details-item">
           <i className="icon icon-calendar" />
-          {data.founded}
+          {data?.founded}
         </p>
         <p className="company-info__details-item">
           <i className="icon icon-link" />
-          <a href={data.website} target="_blank" rel="noopener noreferrer">
-            {data.website}
+          <a href={data?.website} target="_blank" rel="noopener noreferrer">
+            {data?.website}
           </a>
         </p>
       </div>

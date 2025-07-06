@@ -144,7 +144,10 @@ const PageLists = ({ data }) => {
           </thead>
           <tbody>
             {sortedData.map((item, index) => (
-              <tr key={index} onClick={() => navigate(`/companies/${index}`)}>
+              <tr
+                key={index}
+                onClick={() => navigate(`/companies/${data.indexOf(item)}`)}
+              >
                 <td className="list_item_name">
                   {item.company.name}{" "}
                   <span

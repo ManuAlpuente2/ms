@@ -3,6 +3,7 @@ import { getScoreClass } from "../../utils";
 import "./CompanyFinancials.scss";
 
 const CompanyFinancials = ({ data }) => {
+  if (!data) return null;
   return (
     <div className="company-financials">
       <h2 className="page-section-title">Company financials</h2>
