@@ -11,6 +11,10 @@
   display: flex;
   align-items: center;
   height: rem(50);
+  transition: box-shadow 0.2s ease-in-out;
+  &:hover {
+    box-shadow: 0 2px 0 0 var(--color-content-low);
+  }
 }
 .navigation_item__current {
   box-shadow: 0 2px 0 0 var(--color-onbrandcolor);
@@ -21,6 +25,9 @@
   color: var(--color-content-high);
   text-decoration: none;
   text-wrap: nowrap;
+  &:hover {
+    text-decoration: none;
+  }
   .navigation_item__current & {
     font-weight: 500;
   }

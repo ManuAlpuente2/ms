@@ -1,0 +1,43 @@
+@import "../../assets/styles/functions.scss";
+
+.accordion {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.accordion-item {
+  border-bottom: 1px solid var(--color-background-low);
+}
+.accordion-item--active {
+  .accordion-item__content {
+    display: block;
+  }
+}
+.accordion-item__content {
+  display: none;
+  .container {
+    padding-top: rem(8);
+    padding-bottom: rem(8);
+  }
+}
+.accordion-item__header {
+  padding: rem(12) 0;
+  cursor: pointer;
+  &:hover {
+    background: var(--color-background-low--hover);
+  }
+}
+.accordion-item__title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: rem(18);
+  font-weight: 500;
+  line-height: rem(22);
+  color: var(--color-content-high);
+  text-wrap: nowrap;
+  margin: 0;
+  .icon {
+    font-size: rem(24);
+  }
+}
