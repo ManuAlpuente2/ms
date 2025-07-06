@@ -16,3 +16,11 @@
     background: var(--color-background-low--hover);
   }
 }
+
+.button--icon {
+  padding: 0.5rem;
+  border: none;
+  background: transparent;
+  color: var(--color-content-high);
+  border-radius: 100%;
+}

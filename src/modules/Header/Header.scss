@@ -26,3 +26,58 @@
 .header_end {
   gap: rem(24);
 }
+.header--mobile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 rem(16);
+  height: rem(52);
+  border-bottom: 1px solid var(--color-background-low);
+}
+.header-mobile-menu_header {
+  height: 3.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 1rem;
+}
+.header-mobile-menu_content {
+  .navigation_list {
+    margin-top: 0;
+  }
+  .navigation_item:not(.navigation_item__current) {
+    border-bottom: 1px solid var(--color-background-mid);
+  }
+  .navigation_item {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  .card-user {
+    margin: 0 1rem 0;
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    right: 0;
+  }
+  .card-user_info {
+    max-width: 100%;
+    flex: 1;
+  }
+  .search {
+    margin: 0 1rem 0;
+  }
+  .search_input {
+    max-width: 100%;
+  }
+}
+.header--mobile {
+  display: none;
+}
+@media (max-width: rem(1120)) {
+  .header--mobile {
+    display: flex;
+  }
+  .header--desktop {
+    display: none;
+  }
+}

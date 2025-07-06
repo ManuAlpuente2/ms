@@ -23,7 +23,16 @@
   margin-bottom: 2rem;
 }
 
+@media (max-width: 640px) {
+  .col.col_company-score {
+    padding-bottom: 1rem;
+  }
+}
+
 @media (min-width: 640px) {
+  .company-fist-group_row .col {
+    padding-bottom: 1.5rem;
+  }
   .company-fist-group_row {
     display: flex;
     flex-wrap: wrap;
