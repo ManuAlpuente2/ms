@@ -26,7 +26,7 @@ const CompanyNfdCapex = ({ data, height = 280, compact = false }) => {
 
   return (
     <div className="company-nfd-capex">
-      <h2 class="page-section-title">NFD/EBITDA and CAPEX/EBITDA</h2>
+      <h2 className="page-section-title">NFD/EBITDA and CAPEX/EBITDA</h2>
       <ResponsiveContainer width="100%" height={height}>
         <LineChart
           data={chartData}

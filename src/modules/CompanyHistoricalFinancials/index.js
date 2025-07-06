@@ -35,7 +35,7 @@ const CompanyHistoricalFinancials = ({
     <div className="company-historical-financials">
       {!compact && (
         <>
-          <h2 class="page-section-title">Historical Financials</h2>
+          <h2 className="page-section-title">Historical Financials</h2>
         </>
       )}
       <ResponsiveContainer width="100%" height={height}>

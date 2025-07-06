@@ -47,6 +47,18 @@
   align-items: center;
   justify-content: center;
   background-color: var(--color-background-low);
+  &.classification-badge--success {
+    background-color: var(--color-success-verylow);
+    .icon {
+      color: var(--color-success-veryhigh);
+    }
+  }
+  &.classification-badge--danger {
+    background-color: var(--color-danger-verylow);
+    .icon {
+      color: var(--color-danger-veryhigh);
+    }
+  }
 }
 .company-info__classification-item-label {
   color: var(--color-content-low);

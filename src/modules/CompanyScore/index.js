@@ -29,7 +29,7 @@ const CompanyScore = ({ data, score }) => {
 
   return (
     <div className="company-score">
-      <h2 class="page-section-title">Mscope score indicators</h2>
+      <h2 className="page-section-title">Mscope score indicators</h2>
       <RadarChart
         cx="50%"
         cy="50%"
