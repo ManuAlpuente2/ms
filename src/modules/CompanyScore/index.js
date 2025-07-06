@@ -6,13 +6,14 @@ import {
   PolarRadiusAxis,
   Radar,
   Legend,
+  Tooltip,
 } from "recharts";
 import "./CompanyScore.scss";
 
 const COLORS = {
   company: "#209464",
-  microsector: "#58585A",
-  sme: "#A0A0A1",
+  microsector: "var(--color-charting-15)",
+  sme: "var(--color-charting-14)",
 };
 
 const CompanyScore = ({ data }) => {
@@ -79,6 +80,7 @@ const CompanyScore = ({ data }) => {
           fillOpacity={0.3}
           dot={{ r: 2.5, fill: COLORS.sme, fillOpacity: 1 }}
         />
+        <Tooltip />
         <Legend
           iconType="square"
           align="center"

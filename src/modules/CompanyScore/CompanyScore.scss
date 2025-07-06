@@ -18,37 +18,12 @@
     padding-top: 1.5rem;
   }
 
-  .recharts-legend-item {
-    display: flex;
-    align-items: center;
-    margin: 0 1.25rem 0 0;
-    font-size: rem(10);
-    color: var(--color-content-low);
-    font-weight: 400;
-    display: inline-flex !important;
-    align-items: center;
-    .recharts-surface {
-      border-radius: rem(2);
-      width: rem(8);
-      height: rem(8);
-    }
-    .recharts-legend-item-text {
-      color: var(--color-content-low) !important;
-    }
-  }
-
-  .recharts-legend-item:last-child {
-    margin-right: 0;
-  }
-
-  // Etiquetas de ejes
   .recharts-polar-angle-axis-tick-value {
     font-size: rem(11);
     fill: var(--color-content-low);
     font-family: inherit;
   }
 
-  // Grid
   .recharts-polar-grid-angle {
     stroke: var(--color-background-low);
     display: none;

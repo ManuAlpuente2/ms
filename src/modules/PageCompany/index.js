@@ -1,6 +1,8 @@
 import CompanyFinancials from "../CompanyFinancials";
 import CompanyInfo from "../CompanyInfo";
 import CompanyScore from "../CompanyScore";
+import CompanyHistoricalFinancials from "../CompanyHistoricalFinancials";
+import CompanyNfdCapex from "../CompanyNfdCapex";
 import "./PageCompany.scss";
 
 const PageCompany = ({ data }) => {
@@ -25,7 +27,12 @@ const PageCompany = ({ data }) => {
       <div className="company-second-group">
         <div className="container">
           <div className="row company-second-group_row">
-            <div className="col"></div>
+            <div className="col col_historical-financials">
+              <CompanyHistoricalFinancials data={data.historical_financials} />
+            </div>
+            <div className="col col_nfd-capex">
+              <CompanyNfdCapex data={data.ratios} />
+            </div>
           </div>
         </div>
       </div>

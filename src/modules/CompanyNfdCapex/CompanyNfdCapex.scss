@@ -1,0 +1,43 @@
+@import "../../assets/styles/functions.scss";
+
+.company-nfd-capex {
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  padding: 0;
+
+  .recharts-wrapper {
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  .recharts-cartesian-axis-tick-value {
+    font-size: rem(11);
+    fill: var(--color-content-low);
+    font-family: inherit;
+  }
+
+  .recharts-cartesian-grid-horizontal line,
+  .recharts-cartesian-grid-vertical line {
+    stroke: var(--color-background-low);
+  }
+
+  @media (min-width: 600px) {
+    max-width: 600px;
+  }
+
+  // Hover sobre el gráfico: resalta la línea y el punto activo
+  .recharts-line.active,
+  .recharts-line-curve.active {
+    stroke-width: 3 !important;
+    filter: brightness(0.8);
+  }
+  .recharts-dot-active {
+    r: 6 !important;
+    stroke: var(--color-onbrandcolor) !important;
+    stroke-width: 2 !important;
+    filter: drop-shadow(0 0 2px var(--color-onbrandcolor));
+  }
+}

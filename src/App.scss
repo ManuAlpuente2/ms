@@ -27,3 +27,44 @@
 .col {
   padding: 0 rem(12);
 }
+
+//Charts
+.recharts-legend-item {
+  display: inline-flex !important;
+  align-items: center;
+  margin: 0 1.25rem 0 0;
+  font-size: rem(10);
+  color: var(--color-content-low);
+  font-weight: 400;
+  .recharts-surface {
+    border-radius: rem(2);
+    width: rem(8);
+    height: rem(8);
+  }
+  .recharts-legend-item-text {
+    color: var(--color-content-low) !important;
+  }
+}
+.recharts-legend-item:last-child {
+  margin-right: 0;
+}
+.recharts-default-tooltip {
+  border: 1px solid var(--color-content-low) !important;
+  border-radius: rem(4);
+  box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.2);
+  background-color: var(--color-background-base) !important;
+}
+.recharts-tooltip-label {
+  color: var(--color-content-high);
+  font-size: var(--font-size-s);
+  font-weight: 700;
+  margin-bottom: rem(4) !important;
+}
+.recharts-tooltip-item {
+  color: var(--color-content-mid) !important;
+  font-size: var(--font-size-s);
+  padding: 0 !important;
+}
+.recharts-tooltip-item-name {
+  color: var(--color-content-high) !important;
+}
