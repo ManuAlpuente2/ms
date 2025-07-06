@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import CompanyFinancials from "../CompanyFinancials";
 import CompanyInfo from "../CompanyInfo";
 import CompanyScore from "../CompanyScore";
@@ -10,6 +11,7 @@ import CompanyPageNav from "../CompanyPageNav";
 import "./PageCompany.scss";
 
 const PageCompany = ({ data }) => {
+  const { id } = useParams();
   const [activeAccordion, setActiveAccordion] = useState(0);
   const handleAccordionClick = (index) => {
     if (activeAccordion === index) {
@@ -24,13 +26,16 @@ const PageCompany = ({ data }) => {
         <div className="container">
           <div className="row company-fist-group_row">
             <div className="col col_company-info">
-              <CompanyInfo data={data.company} />
+              <CompanyInfo
+                data={data[id].company}
+                score={data[id].financials.score}
+              />
             </div>
             <div className="col col_company-financials">
-              <CompanyFinancials data={data.financials} />
+              <CompanyFinancials data={data[id].financials} />
             </div>
             <div className="col col_company-score">
-              <CompanyScore data={data.score_indicators} />
+              <CompanyScore data={data[id].score_indicators} />
             </div>
           </div>
         </div>
@@ -47,17 +52,17 @@ const PageCompany = ({ data }) => {
               <div className="row company-second-group_row">
                 <div className="col col_historical-financials">
                   <CompanyHistoricalFinancials
-                    data={data.historical_financials}
+                    data={data[id].historical_financials}
                   />
                 </div>
                 <div className="col col_nfd-capex">
-                  <CompanyNfdCapex data={data.ratios} />
+                  <CompanyNfdCapex data={data[id].ratios} />
                 </div>
               </div>
             </div>
           </div>
           <div className="container">
-            <CompanyIncomeTable data={data.income_statement} />
+            <CompanyIncomeTable data={data[id].income_statement} />
           </div>
         </AccordionItem>
         <AccordionItem
@@ -66,8 +71,10 @@ const PageCompany = ({ data }) => {
           onClick={() => handleAccordionClick(1)}
         >
           <div className="container">
-            <CompanyHistoricalFinancials data={data.historical_financials} />
-            <CompanyIncomeTable data={data.income_statement} />
+            <CompanyHistoricalFinancials
+              data={data[id].historical_financials}
+            />
+            <CompanyIncomeTable data={data[id].income_statement} />
           </div>
         </AccordionItem>
         <AccordionItem
@@ -76,8 +83,8 @@ const PageCompany = ({ data }) => {
           onClick={() => handleAccordionClick(2)}
         >
           <div className="container">
-            <CompanyNfdCapex data={data.ratios} />
-            <CompanyIncomeTable data={data.income_statement} />
+            <CompanyNfdCapex data={data[id].ratios} />
+            <CompanyIncomeTable data={data[id].income_statement} />
           </div>
         </AccordionItem>
       </Accordion>

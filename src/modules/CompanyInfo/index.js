@@ -1,14 +1,15 @@
 import "./CompanyInfo.scss";
+import { getScoreClass } from "../../utils";
 
-const CompanyInfo = ({ data }) => {
+const CompanyInfo = ({ data, score }) => {
   return (
     <section className="company-info">
-      <h1 className="company-info__title">{data.name}</h1>
+      <h1 className="page-title">{data.name}</h1>
       <p className="company-info__description">{data.description}</p>
       <div className="company-info__classification">
         <div className="company-info__classification-item">
           <p className="company-info__classification-item-label">Microsector</p>
-          <span className="company-info__badge">
+          <span className={`company-info__badge ${getScoreClass(score)}`}>
             <i className="icon icon-arrow-up" />
             {data.microsector}
           </span>

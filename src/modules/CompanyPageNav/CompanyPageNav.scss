@@ -39,7 +39,7 @@
   box-shadow: 0px 0px 4px 0px #1d1d1d40;
   color: var(--color-content-high);
 }
-@media (min-width: 768px) {
+@media (min-width: rem(768)) {
   .page-nav {
     width: fit-content;
     border-radius: rem(4);

@@ -11,11 +11,11 @@ const CompanyIncomeTable = ({ data }) => {
     <>
       <div className="company-income-table__actions">
         <Button>
-          <i className="icon icon-download"></i> Download
+          <i className="icon icon-download"></i> Export
         </Button>
       </div>
       <div className="company-income-table">
-        <table className="company-income-table__table">
+        <table className="company-income-table__table table">
           <thead>
             <tr>
               <th className="company-income-table__th" rowSpan="2">

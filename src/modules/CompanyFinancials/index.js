@@ -1,11 +1,16 @@
 import "./CompanyFinancials.scss";
+import { getScoreClass } from "../../utils";
 
 const CompanyFinancials = ({ data }) => {
   console.log("Company-Financials", { data });
   return (
     <div className="company-financials">
       <h2 className="page-section-title">Company financials</h2>
-      <span className="company-financials__score">{data.score}</span>
+      <span
+        className={`company-financials__score ${getScoreClass(data.score)}`}
+      >
+        {data.score}
+      </span>
       <p className="company-financials__label">Score</p>
       <div className="company-financials__data-items">
         <div className="company-financials__data-item">

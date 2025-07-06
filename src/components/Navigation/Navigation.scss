@@ -18,8 +18,11 @@
   align-items: center;
   height: rem(50);
   transition: box-shadow 0.2s ease-in-out;
-  &:hover {
-    box-shadow: 0 2px 0 0 var(--color-content-low);
+  cursor: pointer;
+  &:not(.navigation_item__current) {
+    &:hover {
+      box-shadow: 0 2px 0 0 var(--color-content-low);
+    }
   }
 }
 .navigation_item__current {
