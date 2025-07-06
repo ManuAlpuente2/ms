@@ -18,9 +18,7 @@ const AccordionItem = ({ children, title, active, onClick }) => {
           </h3>
         </div>
       </div>
-      <div className="accordion-item__content">
-        <div className="container">{children}</div>
-      </div>
+      <div className="accordion-item__content">{children}</div>
     </li>
   );
 };
