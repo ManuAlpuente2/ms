@@ -2,7 +2,7 @@
   "name": "mscope",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://manualpuente2.github.io/ms/",
+  "homepage": "https://manualpuente2.github.io/ms/build/",
   "dependencies": {
     "@number-flow/react": "^0.5.10",
     "@testing-library/dom": "^10.4.0",
