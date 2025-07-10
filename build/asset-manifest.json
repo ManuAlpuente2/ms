@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ms/build/static/css/main.ca760dc8.css",
-    "main.js": "/ms/build/static/js/main.2c1d7ed7.js",
+    "main.js": "/ms/build/static/js/main.7bcaced5.js",
     "static/js/453.0b11331a.chunk.js": "/ms/build/static/js/453.0b11331a.chunk.js",
     "static/media/icomoon.svg?e83can": "/ms/build/static/media/icomoon.636af6390be30ba7265a.svg",
     "static/media/logo-manu.svg": "/ms/build/static/media/logo-manu.dd05369802ad1c2c6f9cab6a80de6f9a.svg",
@@ -10,11 +10,11 @@
     "static/media/icomoon.ttf?e83can": "/ms/build/static/media/icomoon.2df69f95fd3d8bdaa5e6.ttf",
     "index.html": "/ms/build/index.html",
     "main.ca760dc8.css.map": "/ms/build/static/css/main.ca760dc8.css.map",
-    "main.2c1d7ed7.js.map": "/ms/build/static/js/main.2c1d7ed7.js.map",
+    "main.7bcaced5.js.map": "/ms/build/static/js/main.7bcaced5.js.map",
     "453.0b11331a.chunk.js.map": "/ms/build/static/js/453.0b11331a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ca760dc8.css",
-    "static/js/main.2c1d7ed7.js"
+    "static/js/main.7bcaced5.js"
   ]
 }
