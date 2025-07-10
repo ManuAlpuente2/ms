@@ -1,7 +1,7 @@
 import "./Navigation.scss";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
-const Navigation = () => {
+const Navigation = ({ onItemClick }) => {
   let location = useLocation();
 
   return (
@@ -16,7 +16,11 @@ const Navigation = () => {
             location.pathname === "/" ? "navigation_item__current" : ""
           }`}
         >
-          <Link to="/lists" className="navigation_link">
+          <Link
+            to="/lists"
+            className="navigation_link"
+            onClick={() => onItemClick()}
+          >
             Dashboard
           </Link>
         </li>
@@ -25,7 +29,11 @@ const Navigation = () => {
             location.pathname === "/explorer" ? "navigation_item__current" : ""
           }`}
         >
-          <Link to="/lists" className="navigation_link">
+          <Link
+            to="/lists"
+            className="navigation_link"
+            onClick={() => onItemClick()}
+          >
             Explorer
           </Link>
         </li>
@@ -36,7 +44,11 @@ const Navigation = () => {
               : ""
           }`}
         >
-          <Link to="/companies/0" className="navigation_link">
+          <Link
+            to="/companies/0"
+            className="navigation_link"
+            onClick={() => onItemClick()}
+          >
             Companies
           </Link>
         </li>
@@ -47,7 +59,11 @@ const Navigation = () => {
               : ""
           }`}
         >
-          <Link to="/lists" className="navigation_link">
+          <Link
+            to="/lists"
+            className="navigation_link"
+            onClick={() => onItemClick()}
+          >
             Microsectors
           </Link>
         </li>
@@ -56,7 +72,11 @@ const Navigation = () => {
             location.pathname === "/lists" ? "navigation_item__current" : ""
           }`}
         >
-          <Link to="/lists" className="navigation_link">
+          <Link
+            to="/lists"
+            className="navigation_link"
+            onClick={() => onItemClick()}
+          >
             Lists
           </Link>
         </li>
@@ -65,7 +85,11 @@ const Navigation = () => {
             location.pathname === "/analysis" ? "navigation_item__current" : ""
           }`}
         >
-          <Link to="/lists" className="navigation_link">
+          <Link
+            to="/lists"
+            className="navigation_link"
+            onClick={() => onItemClick()}
+          >
             Analysis
             <span className="navigation_link_badge">Beta</span>
           </Link>

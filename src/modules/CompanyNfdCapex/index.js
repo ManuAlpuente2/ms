@@ -31,6 +31,8 @@ const CompanyNfdCapex = ({ data, height = 280, compact = false }) => {
         <LineChart
           data={chartData}
           margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
+          tabIndex={-1}
+          focusable={false}
         >
           {!compact && (
             <>

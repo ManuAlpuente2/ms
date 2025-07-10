@@ -19,6 +19,7 @@ const CompanyPageNav = () => {
             activeItem === 0 ? "page-nav-item__current" : ""
           }`}
           onClick={() => handleItemClick(0)}
+          tabIndex={0}
         >
           Summary
         </li>
@@ -28,6 +29,7 @@ const CompanyPageNav = () => {
             activeItem === 1 ? "page-nav-item__current" : ""
           }`}
           onClick={() => handleItemClick(1)}
+          tabIndex={0}
         >
           Financials
         </li>
@@ -38,6 +40,7 @@ const CompanyPageNav = () => {
             activeItem === 2 ? "page-nav-item__current" : ""
           }`}
           onClick={() => handleItemClick(2)}
+          tabIndex={0}
         >
           Peers
         </li>
@@ -47,6 +50,7 @@ const CompanyPageNav = () => {
             activeItem === 3 ? "page-nav-item__current" : ""
           }`}
           onClick={() => handleItemClick(3)}
+          tabIndex={0}
         >
           Company info
         </li>
@@ -56,6 +60,7 @@ const CompanyPageNav = () => {
             activeItem === 4 ? "page-nav-item__current" : ""
           }`}
           onClick={() => handleItemClick(4)}
+          tabIndex={0}
         >
           News and events
         </li>

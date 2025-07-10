@@ -52,7 +52,7 @@ const Header = () => {
           </div>
           <div className="header-mobile-menu_content">
             <Search />
-            <Navigation />
+            <Navigation onItemClick={() => setIsMenuOpen(false)} />
             <CardUser />
           </div>
         </div>

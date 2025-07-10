@@ -44,6 +44,8 @@ const CompanyHistoricalFinancials = ({
           margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
           barGap={16}
           barCategoryGap={16}
+          tabIndex={-1}
+          focusable={false}
         >
           {!compact && (
             <>

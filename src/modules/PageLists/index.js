@@ -73,6 +73,13 @@ const PageLists = ({ data }) => {
     );
   };
 
+  const handleSortKeyDown = (e, key) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleSort(key);
+    }
+  };
+
   return (
     <div className="lists">
       <div className="container">
@@ -87,6 +94,9 @@ const PageLists = ({ data }) => {
                   sortConfig.key === "name" ? "active" : ""
                 }`}
                 onClick={() => handleSort("name")}
+                onKeyDown={(e) => handleSortKeyDown(e, "name")}
+                tabIndex={0}
+                focusable={true}
               >
                 <span className="sort-header">
                   Name
@@ -98,6 +108,9 @@ const PageLists = ({ data }) => {
                   sortConfig.key === "location" ? "active" : ""
                 }`}
                 onClick={() => handleSort("location")}
+                onKeyDown={(e) => handleSortKeyDown(e, "location")}
+                tabIndex={0}
+                focusable={true}
               >
                 <span className="sort-header">
                   Location
@@ -109,6 +122,9 @@ const PageLists = ({ data }) => {
                   sortConfig.key === "score" ? "active" : ""
                 }`}
                 onClick={() => handleSort("score")}
+                onKeyDown={(e) => handleSortKeyDown(e, "score")}
+                tabIndex={0}
+                focusable={true}
               >
                 <span className="sort-header">
                   Score
@@ -120,6 +136,9 @@ const PageLists = ({ data }) => {
                   sortConfig.key === "turnover" ? "active" : ""
                 }`}
                 onClick={() => handleSort("turnover")}
+                onKeyDown={(e) => handleSortKeyDown(e, "turnover")}
+                tabIndex={0}
+                focusable={true}
               >
                 <span className="sort-header">
                   Turnover
@@ -131,6 +150,9 @@ const PageLists = ({ data }) => {
                   sortConfig.key === "ebitda" ? "active" : ""
                 }`}
                 onClick={() => handleSort("ebitda")}
+                onKeyDown={(e) => handleSortKeyDown(e, "ebitda")}
+                tabIndex={0}
+                focusable={true}
               >
                 <span className="sort-header">
                   EBITDA
@@ -147,6 +169,15 @@ const PageLists = ({ data }) => {
               <tr
                 key={index}
                 onClick={() => navigate(`/companies/${data.indexOf(item)}`)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    navigate(`/companies/${data.indexOf(item)}`);
+                  }
+                }}
+                tabIndex={0}
+                role="button"
+                aria-label={`View details for ${item.company.name}`}
               >
                 <td className="list_item_name">
                   {item.company.name}{" "}
@@ -195,6 +226,8 @@ const PageLists = ({ data }) => {
                     data={item.historical_financials}
                     compact={true}
                     height={60}
+                    tabIndex={-1}
+                    focusable={false}
                   />
                 </td>
               </tr>

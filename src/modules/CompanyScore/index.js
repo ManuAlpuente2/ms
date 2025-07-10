@@ -37,6 +37,8 @@ const CompanyScore = ({ data, score }) => {
         width={300}
         height={270}
         data={chartData}
+        tabIndex={-1}
+        focusable={false}
       >
         <PolarGrid stroke="#e6e6e6" />
         <PolarAngleAxis
