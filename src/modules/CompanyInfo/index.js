@@ -77,7 +77,12 @@ const CompanyInfo = ({ data, score }) => {
         </p>
         <p className="company-info__details-item">
           <i className="icon icon-link" />
-          <a href={data?.website} target="_blank" rel="noopener noreferrer">
+          <a
+            href={data?.website}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={`Open ${data?.name} website (New tab)`}
+          >
             {data?.website}
           </a>
         </p>

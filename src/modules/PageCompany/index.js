@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import CompanyFinancials from "../CompanyFinancials";
 import CompanyInfo from "../CompanyInfo";
 import CompanyScore from "../CompanyScore";
@@ -12,6 +12,7 @@ import "./PageCompany.scss";
 
 const PageCompany = ({ data }) => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [activeAccordion, setActiveAccordion] = useState(0);
   const handleAccordionClick = (index) => {
     if (activeAccordion === index) {
@@ -23,6 +24,27 @@ const PageCompany = ({ data }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (
+        e.target.tagName === "INPUT" ||
+        e.target.tagName === "TEXTAREA" ||
+        e.target.isContentEditable
+      )
+        return;
+      if (e.key === "ArrowLeft") {
+        if (Number(id) > 0) navigate(`/companies/${Number(id) - 1}`);
+      }
+      if (e.key === "ArrowRight") {
+        if (Number(id) < data.length - 1)
+          navigate(`/companies/${Number(id) + 1}`);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [id]);
+
   return (
     <>
       <div className="company-fist-group">
@@ -100,6 +122,9 @@ const PageCompany = ({ data }) => {
           className={`paginator-link paginator-link--prev ${
             Number(id) === 0 ? "paginator-link--disabled" : ""
           }`}
+          role="button"
+          tabIndex={0}
+          title="Previous company (Arrow Left)"
         >
           <i className="icon icon-chevron-prev" />
           <span className="paginator-link__text">Previous company</span>
@@ -109,6 +134,9 @@ const PageCompany = ({ data }) => {
           className={`paginator-link paginator-link--next ${
             Number(id) === data.length - 1 ? "paginator-link--disabled" : ""
           }`}
+          role="button"
+          tabIndex={0}
+          title="Next company (Arrow Right)"
         >
           <span className="paginator-link__text">Next company</span>
           <i className="icon icon-chevron-next" />
