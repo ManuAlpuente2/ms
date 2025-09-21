@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import CompanyFinancials from "../CompanyFinancials";
 import CompanyInfo from "../CompanyInfo";
@@ -8,10 +8,17 @@ import CompanyNfdCapex from "../CompanyNfdCapex";
 import CompanyIncomeTable from "../CompanyIncomeTable";
 import Accordion, { AccordionItem } from "../../components/Accordion";
 import CompanyPageNav from "../CompanyPageNav";
+import CompaniesContext from "../../contexts/CompaniesContext";
 import "./PageCompany.scss";
 
 const PageCompany = ({ data }) => {
+  const { companies, setCompanies } = useContext(CompaniesContext);
   const { id } = useParams();
+  const [isLoadingCompanyInfo, setIsLoadingCompanyInfo] = useState(true);
+  const [isLoadingCompanyFinancials, setIsLoadingCompanyFinancials] =
+    useState(true);
+  const [isLoadingCompanyScore, setIsLoadingCompanyScore] = useState(true);
+  const [isLoadingTable, setIsLoadingTable] = useState(true);
   const navigate = useNavigate();
   const [activeAccordion, setActiveAccordion] = useState(0);
   const handleAccordionClick = (index) => {
@@ -23,6 +30,17 @@ const PageCompany = ({ data }) => {
   };
   useEffect(() => {
     window.scrollTo(0, 0);
+    setTimeout(() => {
+      setIsLoadingCompanyInfo(false);
+    }, 1000);
+    setTimeout(() => {}, 3000);
+    setTimeout(() => {
+      setIsLoadingCompanyScore(false);
+    }, 2000);
+    setTimeout(() => {
+      setIsLoadingCompanyFinancials(false);
+      setIsLoadingTable(false);
+    }, 4000);
   }, [id]);
 
   useEffect(() => {
@@ -52,17 +70,22 @@ const PageCompany = ({ data }) => {
           <div className="row company-fist-group_row">
             <div className="col col_company-info">
               <CompanyInfo
-                data={data[id].company}
-                score={data[id].financials.score}
+                data={companies?.[id]?.company}
+                score={companies?.[id]?.financials.score}
+                loading={isLoadingCompanyInfo}
               />
             </div>
             <div className="col col_company-financials">
-              <CompanyFinancials data={data[id].financials} />
+              <CompanyFinancials
+                data={companies?.[id]?.financials}
+                loading={isLoadingCompanyFinancials}
+              />
             </div>
             <div className="col col_company-score">
               <CompanyScore
-                data={data[id].score_indicators}
-                score={data[id].financials.score}
+                data={companies?.[id]?.score_indicators}
+                score={companies?.[id]?.financials.score}
+                loading={isLoadingCompanyScore}
               />
             </div>
           </div>
@@ -80,17 +103,24 @@ const PageCompany = ({ data }) => {
               <div className="row company-second-group_row">
                 <div className="col col_historical-financials">
                   <CompanyHistoricalFinancials
-                    data={data[id].historical_financials}
+                    data={companies?.[id]?.historical_financials}
+                    loading={isLoadingTable}
                   />
                 </div>
                 <div className="col col_nfd-capex">
-                  <CompanyNfdCapex data={data[id].ratios} />
+                  <CompanyNfdCapex
+                    data={companies?.[id]?.ratios}
+                    loading={isLoadingTable}
+                  />
                 </div>
               </div>
             </div>
           </div>
           <div className="container">
-            <CompanyIncomeTable data={data[id].income_statement} />
+            <CompanyIncomeTable
+              data={companies?.[id]?.income_statement}
+              loading={isLoadingTable}
+            />
           </div>
         </AccordionItem>
         <AccordionItem
@@ -100,9 +130,9 @@ const PageCompany = ({ data }) => {
         >
           <div className="container">
             <CompanyHistoricalFinancials
-              data={data[id].historical_financials}
+              data={companies?.[id]?.historical_financials}
             />
-            <CompanyIncomeTable data={data[id].income_statement} />
+            <CompanyIncomeTable data={companies?.[id]?.income_statement} />
           </div>
         </AccordionItem>
         <AccordionItem
@@ -111,8 +141,8 @@ const PageCompany = ({ data }) => {
           onClick={() => handleAccordionClick(2)}
         >
           <div className="container">
-            <CompanyNfdCapex data={data[id].ratios} />
-            <CompanyIncomeTable data={data[id].income_statement} />
+            <CompanyNfdCapex data={companies?.[id]?.ratios} />
+            <CompanyIncomeTable data={companies?.[id]?.income_statement} />
           </div>
         </AccordionItem>
       </Accordion>
@@ -132,7 +162,9 @@ const PageCompany = ({ data }) => {
         <Link
           to={`/companies/${Number(id) + 1}`}
           className={`paginator-link paginator-link--next ${
-            Number(id) === data.length - 1 ? "paginator-link--disabled" : ""
+            Number(id) === companies?.length - 1
+              ? "paginator-link--disabled"
+              : ""
           }`}
           role="button"
           tabIndex={0}

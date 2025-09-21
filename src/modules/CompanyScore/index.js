@@ -8,10 +8,11 @@ import {
   Legend,
   Tooltip,
 } from "recharts";
+import Skeleton from "../../components/Skeleton";
 import "./CompanyScore.scss";
 import { getScoreColor } from "../../utils";
 
-const CompanyScore = ({ data, score }) => {
+const CompanyScore = ({ data, score, loading }) => {
   if (!data) return null;
 
   const COLORS = {
@@ -30,67 +31,71 @@ const CompanyScore = ({ data, score }) => {
   return (
     <div className="company-score">
       <h2 className="page-section-title">Mscope score indicators</h2>
-      <RadarChart
-        cx="50%"
-        cy="50%"
-        outerRadius="80%"
-        width={300}
-        height={270}
-        data={chartData}
-        tabIndex={-1}
-        focusable={false}
-      >
-        <PolarGrid stroke="#e6e6e6" />
-        <PolarAngleAxis
-          dataKey="category"
-          tick={{ fill: "#626266", fontSize: 16 }}
-        />
-        <PolarRadiusAxis
-          angle={30}
-          domain={[0, 10]}
-          tick={false}
-          axisLine={false}
-        />
-        <Radar
-          name="Company"
-          dataKey="company"
-          stroke={COLORS.company}
-          fill={COLORS.company}
-          fillOpacity={0.3}
-          strokeOpacity={1}
-          dot={{ r: 2.5, fill: COLORS.company, fillOpacity: 1 }}
-        />
-        <Radar
-          name="Microsector"
-          dataKey="microsector"
-          stroke={COLORS.microsector}
-          strokeOpacity={0.3}
-          strokeWidth={0}
-          fill={COLORS.microsector}
-          fillOpacity={0.3}
-          dot={{
-            r: 2.5,
-            fill: COLORS.microsector,
-            fillOpacity: 1,
-          }}
-        />
-        <Radar
-          name="High growth SME index"
-          dataKey="sme"
-          stroke={COLORS.sme}
-          strokeWidth={0}
-          fill={COLORS.sme}
-          fillOpacity={0.3}
-          dot={{ r: 2.5, fill: COLORS.sme, fillOpacity: 1 }}
-        />
-        <Tooltip />
-        <Legend
-          iconType="square"
-          align="center"
-          verticalAlign="bottom"
-          wrapperStyle={{ paddingTop: 20 }}
-        />
-      </RadarChart>
+      {loading ? (
+        <Skeleton width="100%" height="270px" />
+      ) : (
+        <RadarChart
+          cx="50%"
+          cy="50%"
+          outerRadius="80%"
+          width={300}
+          height={270}
+          data={chartData}
+          tabIndex={-1}
+          focusable={false}
+        >
+          <PolarGrid stroke="#e6e6e6" />
+          <PolarAngleAxis
+            dataKey="category"
+            tick={{ fill: "#626266", fontSize: 16 }}
+          />
+          <PolarRadiusAxis
+            angle={30}
+            domain={[0, 10]}
+            tick={false}
+            axisLine={false}
+          />
+          <Radar
+            name="Company"
+            dataKey="company"
+            stroke={COLORS.company}
+            fill={COLORS.company}
+            fillOpacity={0.3}
+            strokeOpacity={1}
+            dot={{ r: 2.5, fill: COLORS.company, fillOpacity: 1 }}
+          />
+          <Radar
+            name="Microsector"
+            dataKey="microsector"
+            stroke={COLORS.microsector}
+            strokeOpacity={0.3}
+            strokeWidth={0}
+            fill={COLORS.microsector}
+            fillOpacity={0.3}
+            dot={{
+              r: 2.5,
+              fill: COLORS.microsector,
+              fillOpacity: 1,
+            }}
+          />
+          <Radar
+            name="High growth SME index"
+            dataKey="sme"
+            stroke={COLORS.sme}
+            strokeWidth={0}
+            fill={COLORS.sme}
+            fillOpacity={0.3}
+            dot={{ r: 2.5, fill: COLORS.sme, fillOpacity: 1 }}
+          />
+          <Tooltip />
+          <Legend
+            iconType="square"
+            align="center"
+            verticalAlign="bottom"
+            wrapperStyle={{ paddingTop: 20 }}
+          />
+        </RadarChart>
+      )}
     </div>
   );
 };

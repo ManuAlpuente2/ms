@@ -8,6 +8,7 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+import Skeleton from "../../components/Skeleton";
 import "./CompanyNfdCapex.scss";
 
 const COLORS = {
@@ -15,7 +16,7 @@ const COLORS = {
   capexEbitda: "var(--color-charting-15)",
 };
 
-const CompanyNfdCapex = ({ data, height = 280, compact = false }) => {
+const CompanyNfdCapex = ({ data, height = 280, compact = false, loading }) => {
   if (!data) return null;
 
   const chartData = data.years.map((year, i) => ({
@@ -27,79 +28,83 @@ const CompanyNfdCapex = ({ data, height = 280, compact = false }) => {
   return (
     <div className="company-nfd-capex">
       <h2 className="page-section-title">NFD/EBITDA and CAPEX/EBITDA</h2>
-      <ResponsiveContainer width="100%" height={height}>
-        <LineChart
-          data={chartData}
-          margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
-          tabIndex={-1}
-          focusable={false}
-        >
-          {!compact && (
-            <>
-              <CartesianGrid
-                stroke="var(--color-background-low)"
-                vertical={false}
-              />
-              <XAxis
-                dataKey="year"
-                tick={{ fill: "var(--color-content-low)", fontSize: 12 }}
-                tickLine={false}
-                axisLine={false}
-                padding={{ left: 16, right: 16 }}
-                interval={0}
-              />
-              <YAxis
-                tick={{ fill: "var(--color-content-low)", fontSize: 12 }}
-                axisLine={false}
-                tickLine={false}
-                tickFormatter={(v) => (v == null ? "" : `${v}x`)}
-                allowDecimals={true}
-                domain={[0, "auto"]}
-              />
-              <Tooltip
-                formatter={(value) => `${value}x`}
-                labelFormatter={(label) => `Year: ${label}`}
-              />
-              <Legend
-                iconType="square"
-                align="center"
-                verticalAlign="bottom"
-                wrapperStyle={{ paddingTop: 0 }}
-                payload={[
-                  {
-                    value: "NFD/EBITDA",
-                    type: "plainline",
-                    color: COLORS.nfdEbitda,
-                  },
-                  {
-                    value: "CAPEX/EBITDA",
-                    type: "plainline",
-                    color: COLORS.capexEbitda,
-                  },
-                ]}
-              />
-            </>
-          )}
-          <Line
-            type="linear"
-            dataKey="nfdEbitda"
-            name="NFD/EBITDA"
-            stroke={COLORS.nfdEbitda}
-            strokeWidth={2}
-            dot={false}
-            isAnimationActive={true}
-          />
-          <Line
-            type="linear"
-            dataKey="capexEbitda"
-            name="CAPEX/EBITDA"
-            stroke={COLORS.capexEbitda}
-            strokeWidth={2}
-            dot={false}
-            isAnimationActive={true}
-          />
-        </LineChart>
-      </ResponsiveContainer>
+      {loading ? (
+        <Skeleton width="100%" height={height} />
+      ) : (
+        <ResponsiveContainer width="100%" height={height}>
+          <LineChart
+            data={chartData}
+            margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
+            tabIndex={-1}
+            focusable={false}
+          >
+            {!compact && (
+              <>
+                <CartesianGrid
+                  stroke="var(--color-background-low)"
+                  vertical={false}
+                />
+                <XAxis
+                  dataKey="year"
+                  tick={{ fill: "var(--color-content-low)", fontSize: 12 }}
+                  tickLine={false}
+                  axisLine={false}
+                  padding={{ left: 16, right: 16 }}
+                  interval={0}
+                />
+                <YAxis
+                  tick={{ fill: "var(--color-content-low)", fontSize: 12 }}
+                  axisLine={false}
+                  tickLine={false}
+                  tickFormatter={(v) => (v == null ? "" : `${v}x`)}
+                  allowDecimals={true}
+                  domain={[0, "auto"]}
+                />
+                <Tooltip
+                  formatter={(value) => `${value}x`}
+                  labelFormatter={(label) => `Year: ${label}`}
+                />
+                <Legend
+                  iconType="square"
+                  align="center"
+                  verticalAlign="bottom"
+                  wrapperStyle={{ paddingTop: 0 }}
+                  payload={[
+                    {
+                      value: "NFD/EBITDA",
+                      type: "plainline",
+                      color: COLORS.nfdEbitda,
+                    },
+                    {
+                      value: "CAPEX/EBITDA",
+                      type: "plainline",
+                      color: COLORS.capexEbitda,
+                    },
+                  ]}
+                />
+              </>
+            )}
+            <Line
+              type="linear"
+              dataKey="nfdEbitda"
+              name="NFD/EBITDA"
+              stroke={COLORS.nfdEbitda}
+              strokeWidth={2}
+              dot={false}
+              isAnimationActive={true}
+            />
+            <Line
+              type="linear"
+              dataKey="capexEbitda"
+              name="CAPEX/EBITDA"
+              stroke={COLORS.capexEbitda}
+              strokeWidth={2}
+              dot={false}
+              isAnimationActive={true}
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      )}
     </div>
   );
 };

@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/ms/build/static/css/main.ca760dc8.css",
-    "main.js": "/ms/build/static/js/main.7bcaced5.js",
+    "main.css": "/ms/build/static/css/main.e76fbc95.css",
+    "main.js": "/ms/build/static/js/main.263625aa.js",
     "static/js/453.0b11331a.chunk.js": "/ms/build/static/js/453.0b11331a.chunk.js",
     "static/media/icomoon.svg?e83can": "/ms/build/static/media/icomoon.636af6390be30ba7265a.svg",
     "static/media/logo-manu.svg": "/ms/build/static/media/logo-manu.dd05369802ad1c2c6f9cab6a80de6f9a.svg",
@@ -9,12 +9,12 @@
     "static/media/logo-manu--mobile.svg": "/ms/build/static/media/logo-manu--mobile.1efc46620fbf69495639aa0e3f0cc369.svg",
     "static/media/icomoon.ttf?e83can": "/ms/build/static/media/icomoon.2df69f95fd3d8bdaa5e6.ttf",
     "index.html": "/ms/build/index.html",
-    "main.ca760dc8.css.map": "/ms/build/static/css/main.ca760dc8.css.map",
-    "main.7bcaced5.js.map": "/ms/build/static/js/main.7bcaced5.js.map",
+    "main.e76fbc95.css.map": "/ms/build/static/css/main.e76fbc95.css.map",
+    "main.263625aa.js.map": "/ms/build/static/js/main.263625aa.js.map",
     "453.0b11331a.chunk.js.map": "/ms/build/static/js/453.0b11331a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ca760dc8.css",
-    "static/js/main.7bcaced5.js"
+    "static/css/main.e76fbc95.css",
+    "static/js/main.263625aa.js"
   ]
 }

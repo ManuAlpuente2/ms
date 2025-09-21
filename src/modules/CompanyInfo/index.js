@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import "./CompanyInfo.scss";
 import { getScoreClass } from "../../utils";
+import Skeleton from "../../components/Skeleton";
 
-const CompanyInfo = ({ data, score }) => {
+const CompanyInfo = ({ data, score, loading }) => {
   const [assessment, setAssessment] = useState(null);
 
   useEffect(() => {
@@ -15,7 +16,7 @@ const CompanyInfo = ({ data, score }) => {
   }, [data?.id]);
 
   useEffect(() => {
-    localStorage.setItem(`assessment_${data.id}`, JSON.stringify(assessment));
+    localStorage.setItem(`assessment_${data?.id}`, JSON.stringify(assessment));
   }, [assessment, data?.id]);
 
   const handleAssessmentChange = (value) => {
@@ -26,7 +27,34 @@ const CompanyInfo = ({ data, score }) => {
     }
   };
 
-  return (
+  return loading ? (
+    <section className="company-info">
+      <h1 className="page-title">
+        <Skeleton width="60%" />
+      </h1>
+      <p className="company-info__description">
+        <Skeleton width="100%" />
+        <Skeleton width="100%" />
+        <Skeleton width="100%" />
+        <Skeleton width="100%" />
+        <Skeleton width="30%" />
+      </p>
+      <div className="company-info__details">
+        <p className="company-info__details-item">
+          <Skeleton width="1em" className="icon" />
+          <Skeleton width="10em" />
+        </p>
+        <p className="company-info__details-item">
+          <Skeleton width="1em" className="icon" />
+          <Skeleton width="10em" />
+        </p>
+        <p className="company-info__details-item">
+          <Skeleton width="1em" className="icon" />
+          <Skeleton width="10em" />
+        </p>
+      </div>
+    </section>
+  ) : (
     <section className="company-info">
       <h1 className="page-title">{data?.name}</h1>
       <p className="company-info__description">{data?.description}</p>

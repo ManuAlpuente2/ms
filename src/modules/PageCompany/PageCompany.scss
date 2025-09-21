@@ -50,6 +50,9 @@
   opacity: 0.5;
   pointer-events: none;
 }
+.col_company-info {
+  width: 100%;
+}
 
 @media (max-width: rem(640)) {
   .col.col_company-score {

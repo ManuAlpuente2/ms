@@ -8,11 +8,12 @@
   transition: color 0.2s ease;
 }
 .company-financials__label {
+  margin-top: 0.125rem;
   font-size: rem(11);
   font-weight: 400;
-  line-height: 1;
+  line-height: 1.1;
   color: var(--color-content-low);
-  margin: 0 0;
+  display: block;
 }
 .company-financials__data-items {
   display: flex;

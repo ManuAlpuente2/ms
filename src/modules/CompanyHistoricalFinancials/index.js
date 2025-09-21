@@ -9,6 +9,7 @@ import {
   Line,
   ResponsiveContainer,
 } from "recharts";
+import Skeleton from "../../components/Skeleton";
 import "./CompanyHistoricalFinancials.scss";
 
 const COLORS = {
@@ -21,6 +22,7 @@ const CompanyHistoricalFinancials = ({
   data,
   compact = false,
   height = 280,
+  loading,
 }) => {
   if (!data) return null;
 
@@ -38,102 +40,110 @@ const CompanyHistoricalFinancials = ({
           <h2 className="page-section-title">Historical Financials</h2>
         </>
       )}
-      <ResponsiveContainer width="100%" height={height}>
-        <BarChart
-          data={chartData}
-          margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
-          barGap={16}
-          barCategoryGap={16}
-          tabIndex={-1}
-          focusable={false}
-        >
-          {!compact && (
-            <>
-              <XAxis
-                dataKey="year"
-                tick={{ fill: "var(--color-content-low)", fontSize: 12 }}
-                tickLine={false}
-              />
-              <YAxis
-                yAxisId="left"
-                orientation="left"
-                tick={{ fill: "var(--color-content-low)", fontSize: 12 }}
-                axisLine={false}
-                tickLine={false}
-                tickFormatter={(v) => (v == null ? "" : `${v}€M`)}
-                allowDecimals={false}
-              />
-              <YAxis
-                yAxisId="right"
-                orientation="right"
-                tick={{ fill: "var(--color-content-low)", fontSize: 12 }}
-                axisLine={false}
-                tickLine={false}
-                tickFormatter={(v) => (v == null ? "" : `${v}%`)}
-                allowDecimals={false}
-                domain={[0, 100]}
-              />
-              <Tooltip
-                formatter={(value, name) =>
-                  name === "ebitdaMargin" ? `${value}%` : value
-                }
-                labelFormatter={(label) => `Year: ${label}`}
-                cursor={true}
-              />
-              <Legend
-                iconType="square"
-                align="center"
-                verticalAlign="bottom"
-                wrapperStyle={{ paddingTop: 0 }}
-                payload={[
-                  { value: "Turnover", type: "square", color: COLORS.turnover },
-                  { value: "EBITDA", type: "square", color: COLORS.ebitda },
-                  {
-                    value: "EBITDA Margin",
-                    type: "line",
-                    color: COLORS.margin,
-                  },
-                ]}
-              />
-              <CartesianGrid
-                stroke="var(--color-background-low)"
-                vertical={false}
-                horizontal={true}
-                strokeWidth={1}
-                yAxisId="left"
-              />
-              <Bar
-                yAxisId="left"
-                dataKey="turnover"
-                name="Turnover"
-                fill={COLORS.turnover}
-                radius={[24, 24, 0, 0]}
-                barSize={16}
-                isAnimationActive={true}
-              />
-              <Bar
-                yAxisId="left"
-                dataKey="ebitda"
-                name="EBITDA"
-                fill={COLORS.ebitda}
-                radius={[24, 24, 0, 0]}
-                barSize={16}
-                isAnimationActive={true}
-              />
-            </>
-          )}
-          <Line
-            yAxisId="right"
-            type={!compact ? "linear" : "basis"}
-            dataKey="ebitdaMargin"
-            name="EBITDA Margin"
-            stroke={COLORS.margin}
-            strokeWidth={!compact ? 2 : 2.5}
-            dot={false}
-            isAnimationActive={true}
-          />
-        </BarChart>
-      </ResponsiveContainer>
+      {loading ? (
+        <Skeleton width="100%" height={height} />
+      ) : (
+        <ResponsiveContainer width="100%" height={height}>
+          <BarChart
+            data={chartData}
+            margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
+            barGap={16}
+            barCategoryGap={16}
+            tabIndex={-1}
+            focusable={false}
+          >
+            {!compact && (
+              <>
+                <XAxis
+                  dataKey="year"
+                  tick={{ fill: "var(--color-content-low)", fontSize: 12 }}
+                  tickLine={false}
+                />
+                <YAxis
+                  yAxisId="left"
+                  orientation="left"
+                  tick={{ fill: "var(--color-content-low)", fontSize: 12 }}
+                  axisLine={false}
+                  tickLine={false}
+                  tickFormatter={(v) => (v == null ? "" : `${v}€M`)}
+                  allowDecimals={false}
+                />
+                <YAxis
+                  yAxisId="right"
+                  orientation="right"
+                  tick={{ fill: "var(--color-content-low)", fontSize: 12 }}
+                  axisLine={false}
+                  tickLine={false}
+                  tickFormatter={(v) => (v == null ? "" : `${v}%`)}
+                  allowDecimals={false}
+                  domain={[0, 100]}
+                />
+                <Tooltip
+                  formatter={(value, name) =>
+                    name === "ebitdaMargin" ? `${value}%` : value
+                  }
+                  labelFormatter={(label) => `Year: ${label}`}
+                  cursor={true}
+                />
+                <Legend
+                  iconType="square"
+                  align="center"
+                  verticalAlign="bottom"
+                  wrapperStyle={{ paddingTop: 0 }}
+                  payload={[
+                    {
+                      value: "Turnover",
+                      type: "square",
+                      color: COLORS.turnover,
+                    },
+                    { value: "EBITDA", type: "square", color: COLORS.ebitda },
+                    {
+                      value: "EBITDA Margin",
+                      type: "line",
+                      color: COLORS.margin,
+                    },
+                  ]}
+                />
+                <CartesianGrid
+                  stroke="var(--color-background-low)"
+                  vertical={false}
+                  horizontal={true}
+                  strokeWidth={1}
+                  yAxisId="left"
+                />
+                <Bar
+                  yAxisId="left"
+                  dataKey="turnover"
+                  name="Turnover"
+                  fill={COLORS.turnover}
+                  radius={[24, 24, 0, 0]}
+                  barSize={16}
+                  isAnimationActive={true}
+                />
+                <Bar
+                  yAxisId="left"
+                  dataKey="ebitda"
+                  name="EBITDA"
+                  fill={COLORS.ebitda}
+                  radius={[24, 24, 0, 0]}
+                  barSize={16}
+                  isAnimationActive={true}
+                />
+              </>
+            )}
+            <Line
+              yAxisId="right"
+              type={!compact ? "linear" : "basis"}
+              dataKey="ebitdaMargin"
+              name="EBITDA Margin"
+              stroke={COLORS.margin}
+              strokeWidth={!compact ? 2 : 2.5}
+              dot={false}
+              isAnimationActive={true}
+            />
+          </BarChart>
+        </ResponsiveContainer>
+      )}
     </div>
   );
 };

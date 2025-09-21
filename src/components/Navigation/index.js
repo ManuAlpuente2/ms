@@ -1,7 +1,7 @@
 import "./Navigation.scss";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
-const Navigation = ({ onItemClick }) => {
+const Navigation = ({ onItemClick = () => {} }) => {
   let location = useLocation();
 
   return (

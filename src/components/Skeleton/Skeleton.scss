@@ -1,0 +1,31 @@
+@keyframes skeleton {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.skeleton {
+  display: inline-block;
+  background-color: #dfdfdf;
+  animation: skeleton 2s ease-in-out 0.5s infinite;
+  width: 100%;
+  line-height: 1.1;
+  pointer-events: none;
+  border-radius: 4px;
+  font-size: inherit;
+  &:before {
+    content: "\00a0";
+  }
+  &.icon {
+    border-radius: 100%;
+    display: block;
+    height: 1em;
+    width: 1em;
+  }
+}
